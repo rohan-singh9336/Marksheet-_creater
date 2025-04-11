@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD website</title>
+    <script src="https://kit.fontawesome.com/9c1e932812.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="index.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="index.js"></script>  
+
+</head>
+<body>
+   
+    <div id="container">
+        <div id="title-box" class="animate__animated animate__pulse animate__faster 10s animate__repeat-3	3" >
+        <h1> Create Your Marksheet</h1>
+        </div>
+<!.......................main control imformation pannel............................!>
+
+            <div id="form-card" class="animate__animated animate__zoomIn">
+
+                <form id="marksheet-form">
+
+                    <div id="horizontal">
+                        <div id="form-group">
+                            <label>Candidate's Image</label>
+                            <input type="file" name="candidateimg" accept="Image/*" id="student-pic-input"/>
+                        </div>
+                    </div>
+
+                    <div id="horizontal">
+
+                        <div id="form-group">
+                            <label>Candidate's Name</label>
+                            <input type="text" name="candidatename" placeholder="Enter candidate name" id="candidate-name-input"/>
+                        </div>
+    
+                        <div id="form-group">
+                            <label>Father's Name</label>
+                            <input type="text" name="Fathername" placeholder="Enter candidate's father name" id="father-name-input"/>
+                        </div>
+
+                    </div>
+
+                    <div id="horizontal">
+
+                        <div id="form-group">
+                            <label>Roll No.</label>
+                            <input type="number" name="rollno" placeholder="Enter candidate rollno" id="roll-no-input"/>
+                        </div>
+    
+                        <div id="form-group">
+                            <label>Mother's Name</label>
+                            <input type="text" name="Mothername" placeholder="Enter candidate's mother name" id="mother-name-input"/>
+                        </div>  
+
+                    </div>
+
+                    <div id="horizontal">
+
+                        <div id="form-group">
+                            <label>DOB</label>
+                            <input type="date" name="birthdate" id="date-birth-input"/>
+                        </div>
+    
+                        <div id="form-group">
+                            <label>Gender</label>
+                            <select id="input">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div> 
+
+                        <div id="form-group">
+                            <label>Class</label>
+                            <input type="text" name="class" placeholder="Enter candidate's class" id="class-input"/>
+                        </div>
+    
+                        <div id="form-group">
+                            <label>Section</label>
+                            <select id="input-section">
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                            </select>
+                        </div>  
+                        
+                    </div>
+
+                    
+                    <div id="horizontal">
+
+                        <div id="form-group">
+                            <label>School Working Day</label>
+                            <input type="number" name="school" placeholder="Enter total school working day" id="school-work-day"/>
+                        </div>
+    
+                        <div id="form-group">
+                            <label> Student's Total Attendence's</label>
+                            <input type="number" name="attendence" placeholder="Enter total attendence in year" id="total-attendence"/>
+                        </div>
+
+                        <button id="show-percentage" type="button">Show Percentage</button>
+                    </div>
+
+                         <button id="add-subjectbtn" type="button"><i class="fa-solid fa-plus"></i>Add Subject</button>
+
+<!........................add subject in field.......................................................!>
+
+                    <div id="dynamic-area"></div>
+
+                    <button id="generate" type="button">
+                        <i class="fa-solid fa-download"></i>
+                        Generate Your Marksheet Now</button>
+
+<!...........................adding subject is ended..................................................!>
+                </form>
+
+        </div>
+
+<!...........................creating marksheet-form....................................!>        
+      
+    <div id="preview">
+
+<!..........................school/college name and student photo in table................................!>
+
+            <table width="100%">
+
+                <tr>
+                    <th width="150">
+                        <img src="images/sgalogo2.jfif" width="100%" />
+                    </th>
+                    <td align="center">
+                        <h1 id="school-title">S.G.A. PUBLIC SCHOOL</h1>
+                        <hr/>
+                        <p style="font-weight: 400; color: green;">SAURABH THE GREAT ACADEMY PUBLIC SCHOO.</p>
+                        <span style="font-weight: 200; color: green">AFFILIATED BY CBSE/UP BOARD.</span>
+                        <p style="font-weight: 200; color: rgb(81, 67, 67);">(SINCE - 2006)</p>
+                    </td>
+                </tr>
+
+            </table>
+
+<!.......................student informtion Image name class rollno. etc in table....................!>
+
+            <table width="100%">
+
+                <tr>
+                    <td>
+                       <table width="100%">
+
+                            <tr>
+                                <th width="200">Student's Name :</th>
+                                <td id="candidate-name"> </td>
+
+                                <th width="200"> StudentRoll No :</th>
+                                <td id="rollno"> </td>
+                            </tr>
+
+                            <tr>
+                                <th width="200"> Father's name :</th>
+                                <td id="father-name"> </td>
+
+                                <th width="200"> Mother's Name :</th>
+                                <td id="mother-name"> </td>
+                            </tr>
+
+                            <tr>
+                                <th width="200"> DOB :</th>
+                                <td id="date-birth"> </td>
+
+                                <th width="200">Gender :</th>
+                                <td id="candidate-gender"> </td>
+                            </tr>
+
+                            <tr>
+                                <th width="200"> Class :</th>
+                                <td id="candidate-class"> </td>
+
+                                <th width="200">Section :</th>
+                                <td id="candidate-section"> </td>
+                            </tr>
+
+                       </table>
+                    </td>
+
+                    <th width="150">
+                        <img src="#"  width="100%" id="student-pic"/>
+                    </th>
+
+                </tr>
+
+            </table>
+
+<!.........................creating student marks sheetdata in table.............................!>
+
+                        
+                <table width="100%">
+
+                    <tr>
+                        <th>Subject</th>
+                        <th>Fullmarks</th>
+                        <th>Obtained Marks</th>
+                    </tr>
+
+                    <tbody id="subject-body">
+
+                    </tbody>
+                    
+                </table>
+
+<!...........................showing total Percentage of student in table.........................!>
+
+            <table width="100%">
+
+                <tr>
+                    <th colspan="2" align="right">Total Subject Marks :&nbsp; &nbsp;</th>
+                    <th align="center" style="color: green" id="total-subject-marks">&nbsp;0</th>
+                    <th colspan="3" align="right">Total Obtained Marks :&nbsp; &nbsp;</th>
+                    <th align="center" style="color: green" id="total-marks">0</th>
+                    
+                </tr>
+
+                <tr>
+                    <th colspan="2" align="right">Grade :&nbsp; &nbsp;</th>
+                    <th align="center" style="color: green" id="grade">&nbsp;</th>
+                    <th colspan="3" align="right">Total Percentage :&nbsp; &nbsp;</th>
+                    <th align="center" style="color: green" id="Percentage">&nbsp;0%</th>                   
+                </tr>
+
+                <tr>
+                    <th colspan="6" align="right">STUDENT IS:&nbsp; &nbsp;</th>
+                    <th align="center" style="color: green" id="pass-fail">&nbsp; </th>
+                </tr>
+
+                <tr>
+                    <th colspan="2" align="right">Attendence :&nbsp; &nbsp;</th>
+                    <th align="center" id="working-day-school"> </th>
+                    <th align="center" style="color: green" id="student-attendence"> </th>
+
+                    <th colspan="2" align="right">Total Percentage :&nbsp; &nbsp;</th>
+                    <th align="center" style="color: green" id="attendence-percentage">&nbsp;0%</th>                   
+                </tr>
+
+            </table>
+<!...........................creating footer of marksheet in table..................................!>
+
+            <table width="100%">
+                        
+                <tr>
+                    <th style="color: red;">Important :</th>
+                    <th style="color: red;" colspan="4">
+                        Please verify all detailes carefully.
+                    </th>
+                </tr>
+
+                <tr> 
+                    <th>
+                    Instuction for parents/Guardians :
+                    </th>
+
+                    <th style="color: green;" colspan="4">
+                        kindiy review the marks and overall progress. In case of any discrepancies, contact the examination department within 7 days. <br/>
+                        (Encourage your child to focus on areas where improvement is needed.) 
+                    </th>
+                </tr>
+                        
+                <tr>
+                    <th><span style="color: green">09/10/2024</span> <br/> <br/> Issued on :</th>
+
+                    <th colspan="2" align="center">
+                    <p style="color: red;">Contact Information</p> 
+                                <hr/>
+                                
+                        <h3 style="color: green">S.G.A. PUBLIC SCHOOL</h3>
+                        <P style="color: green">Email : sgasemra@gmail.com</P>
+                        <p style="color: green">Phone : 9336938186 </p>
+                        <p style="color: green">website : sgasemra.in</p>
+                        <p style="color: green">Office Hours : 9:00 AM TO 3:00 PM</p>
+                    </th>
+                    <th>
+                        <span style="color: green">Rohan singh</span>
+                        <br/>
+                    <h3>Principal's :</h3>    
+                    </th>
+
+                    <th>
+                        <span style="color: green">Pallu singh</span>
+                        <br/>
+                        <h3> Vise principal :    </h3>
+                    </th>
+            
+                </tr>
+
+            </table>
+
+
+
+
+    </div>
+             
+    </div>
+
+</body>
+</html>
